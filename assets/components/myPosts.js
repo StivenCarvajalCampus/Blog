@@ -6,7 +6,7 @@ export default{
             date: "Nov 12",
             paragraph: `This is a wider card with supporting text below as a natural lead-in to
             additional content.`,
-            image: "assets/image/martincard.jpg",
+            image: "./assets/image/martincard.jpg",
             btn:{
                 name: "Continue reading...",
                 href: "#",
@@ -26,7 +26,7 @@ export default{
                 <a href="#" class="stretched-link">${val.btn.name}</a>
               </div>
               <div class="col-auto d-none d-lg-block">
-              ${val.image}
+              <img class="responsiveImg" src= "${val.image}">
                   <title>Placeholder</title>
                 </svg>
               </div>
