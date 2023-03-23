@@ -53,8 +53,6 @@ export default{
         let plantilla = "";
         this.topsongs.forEach((val,id) => {
             plantilla += `<a class="p-2 link-secondary" href="#">${val.name}</a>`
-            console.log(val);
-  
             });
             document.querySelector("#topsongs").insertAdjacentHTML("beforeend", plantilla);
 

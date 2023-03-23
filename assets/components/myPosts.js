@@ -1,11 +1,36 @@
 export default{
     post:[
         {
-            article: "FOR SERVER",
-            title: "Featured post",
+            article: "EL GRAN MARTIN ELIAS",
+            title: "Su Apodo",
             date: "Nov 12",
-            paragraph: `This is a wider card with supporting text below as a natural lead-in to
-            additional content.`,
+            paragraph: `Me puso así por la familia de él -contaba-. Tenía un tío que se llamaba Martín Elías (Maestre). Era el acordeonero con el que cantaba las parrandas en las fincas.`,
+            image: "./assets/image/martincard.jpg",
+            btn:{
+                name: "Continue reading...",
+                href: "#",
+            }
+
+        },
+
+        {
+            article: "EL GRAN MARTIN ELIAS",
+            title: "Su Apodo",
+            date: "Nov 12",
+            paragraph: `Me puso así por la familia de él -contaba-. Tenía un tío que se llamaba Martín Elías (Maestre). Era el acordeonero con el que cantaba las parrandas en las fincas.`,
+            image: "./assets/image/martincard.jpg",
+            btn:{
+                name: "Continue reading...",
+                href: "#",
+            }
+
+        },
+
+        {
+            article: "EL GRAN MARTIN ELIAS",
+            title: "Su Apodo",
+            date: "Nov 12",
+            paragraph: `Me puso así por la familia de él -contaba-. Tenía un tío que se llamaba Martín Elías (Maestre). Era el acordeonero con el que cantaba las parrandas en las fincas.`,
             image: "./assets/image/martincard.jpg",
             btn:{
                 name: "Continue reading...",
