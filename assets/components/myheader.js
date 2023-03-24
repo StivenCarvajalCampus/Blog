@@ -45,7 +45,7 @@ export default{
         },
     ],
     listtitle(){
-        document.querySelector("#title").insertAdjacentHTML("beforeend",`<a class="blog-header-logo text-dark" href="${this.title}">${this.title.name}</a>`)
+        document.querySelector("#title").insertAdjacentHTML("beforeend",`<a class="blog-header-logo text-yellow"href="${this.title}">${this.title.name}</a>`)
 //<a class="blog-header-logo text-dark" href="#">Large</a>
     },
 
