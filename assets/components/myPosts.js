@@ -14,7 +14,7 @@ export default{
         },
 
         {
-            article: "EL GRAN MARTIN ELIAS",
+            article: "EL GRAN ELIAS",
             title: "Su Apodo",
             date: "Nov 12",
             paragraph: `Me puso así por la familia de él -contaba-. Tenía un tío que se llamaba Martín Elías (Maestre). Era el acordeonero con el que cantaba las parrandas en las fincas.`,
