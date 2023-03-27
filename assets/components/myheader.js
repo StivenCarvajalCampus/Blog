@@ -56,5 +56,16 @@ export default{
             });
             document.querySelector("#topsongs").insertAdjacentHTML("beforeend", plantilla);
 
+        },
+        fragShow(){/* 
+            let doc = new DOMParser().parseFromString("<h1>Hola Mundo</h1>", "text/xml");
+            console.log(doc.querySelector("h1")); */
+            const ws = new Worker ("storage/ws.js", {type: "module"})
+            ws.postMessage({nombre: "Stiven"});
+
+            ws.addEventListener("message", (e)=>{
+                console.log(e.data);
+                ws.terminate();
+            })
         }
     }
