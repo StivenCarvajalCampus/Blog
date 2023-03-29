@@ -1,71 +1,28 @@
+import config from "../../storage/config.js";
 export default{
-    title: {
-        name: "Martin Elias Diaz Acosta"
-    },
-    topsongs: [
-        {
-            name:"Al fin llegaste tu",
-            href:"#",
-        },
-        {
-            name:"10 razones para amarte",
-            href:"#",
-        },
-        {
-            name:"El terremoto",
-            href:"#",
-        },
-        {
-            name:"Abrete",
-            href:"#",
-        },
-        {
-            name:"Ella tu amiga",
-            href:"#",
-        },
-        {
-            name:"Ya tengo quien me quiera",
-            href:"#",
-        },
-        {
-            name:"Vas a llorar ",
-            href:"#",
-        },
-        {
-            name:"Por ti ",
-            href:"#",
-        },
-        {
-            name:"El complemento de mi vida",
-            href:"#",
-        },
-        {
-            name:"El fantasma",
-            href:"#",
-        },
-    ],
-    listtitle(){
-        document.querySelector("#title").insertAdjacentHTML("beforeend",`<a class="blog-header-logo text-yellow"href="${this.title}">${this.title.name}</a>`)
-//<a class="blog-header-logo text-dark" href="#">Large</a>
-    },
+    showHeader(){
+        //Le decimos que el this va a contener lo que haya en el localStorage en la key "myHeader"
+        config.dataMyHeader();
+        Object.assign(this, JSON.parse(localStorage.getItem("myHeader")));
+        //Creamos el worker
+        const ws = new Worker("storage/wsMyHeader.js", {type:"module"});
+        //enviamos el mensaje al worker
+        let id = [];
+        let count = 0;
+        //id.push("#title")
+        ws.postMessage({module: "listTitle", data: this.title});
+        // id.push ("#listsongs")
+        ws.postMessage({module: "listSongs", data: this.topsongs});
+        id=["#title", "#topsongs"];
 
-    listSongs(){
-        let plantilla = "";
-        this.topsongs.forEach((val,id) => {
-            plantilla += `<a class="p-2 link-secondary" href="#">${val.name}</a>`
-            });
-            document.querySelector("#topsongs").insertAdjacentHTML("beforeend", plantilla);
-
-        },
-        fragShow(){/* 
-            let doc = new DOMParser().parseFromString("<h1>Hola Mundo</h1>", "text/xml");
-            console.log(doc.querySelector("h1")); */
-            const ws = new Worker ("storage/ws.js", {type: "module"})
-            ws.postMessage({nombre: "Stiven"});
-
-            ws.addEventListener("message", (e)=>{
-                console.log(e.data);
-                ws.terminate();
-            })
-        }
+        //Esta es la respuesta al worker
+        ws.addEventListener("message",(e)=>{
+            //Estamos parseando lo que trae el mensaje
+            let doc = new DOMParser().parseFromString(e.data, "text/html");
+            //Insercion en el index
+            document.querySelector(id[count]).append(...doc.body.children);
+            //terminamos el worker
+            (id.length-1==count)? ws.terminate(): count++;
+        })
     }
+}
