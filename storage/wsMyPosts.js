@@ -1,5 +1,5 @@
 export let wsMyPosts = {
-    showPosts(posting){
+    showPost(posting){
         let plantilla = "";
         posting.forEach((val,id) => {
             plantilla += `
@@ -17,12 +17,13 @@ export let wsMyPosts = {
 <title>Placeholder</title>
 </svg>
 </div>
-</div>`
+</div>
+</div>`;
         });
         return plantilla;
     }
 };
 self.addEventListener("message", (e)=>{
-    postMessage(wsMyPosts[`${e.data.module}`](e.data.data))
+    postMessage(wsMyPosts[`${e.data.module}`](e.data.data));
     console.log(e.data.data)
-})
+});

@@ -8,6 +8,9 @@ import myFinaltext from "./myFinaltext.js";
 myheader.showHeader();
 mybanner.showBanner();
 myPosts.showPost();
+myContent.showContent();
+myTable.showTable();
+myAside.showFragmentAside();
 
 /* 
 mybanner.showImage();
